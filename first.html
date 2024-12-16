@@ -3,54 +3,112 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Next Page</title>
+    <title>Escape Gift with Fireworks</title>
     <style>
         body {
-            font-family: 'Arial', sans-serif;
-            background-color: #f0f8ff;
-            color: #333;
-            text-align: center;
-            height: 100vh; /* Set height to 100% of viewport */
-            display: flex;
-            justify-content: center; /* Center horizontally */
-            align-items: center; /* Center vertically */
             margin: 0;
-        }
-
-        /* Gift box styles */
-        .gift {
-            width: 200px;
-            height: 200px;
-            background-color: #ff6347;
-            color: #fff;
+            height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
-            font-size: 1.5rem;
-            border-radius: 10px;
+            background-color: #f0f0f0;
+            overflow: hidden;
+        }
+        #escapeGift {
+            width: 150px;
+            height: 150px;
+            background-color: orange;
+            color: white;
+            text-align: center;
+            line-height: 50px;
+            font-size: 18px;
+            font-weight: bold;
+            border-radius: 8px;
             cursor: pointer;
-            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.5);
-            animation: bounce 1s infinite alternate;
+            position: absolute;
+            padding-top: 75px;
         }
 
-        .gift img {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-            border-radius: 10px;
+        /* Fireworks animation */
+        .fireworks {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            background-color: transparent;
+            border-radius: 50%;
+            box-shadow: 0 0 10px rgba(255, 165, 0, 0.8), 0 0 20px rgba(255, 165, 0, 0.8), 0 0 30px rgba(255, 165, 0, 0.8);
+            animation: fireworks 1s ease-out;
         }
 
-        /* Keyframe animation for bouncing effect */
-        @keyframes bounce {
-            0% { transform: translateY(0); }
-            100% { transform: translateY(-15px); }
+        @keyframes fireworks {
+            0% {
+                transform: scale(0);
+                opacity: 1;
+            }
+            50% {
+                transform: scale(3);
+                opacity: 0.5;
+            }
+            100% {
+                transform: scale(0);
+                opacity: 0;
+            }
         }
     </style>
 </head>
 <body>
-    <!-- Clickable animated gift box -->
-    <div class="gift" onclick="window.location.href='pavansai.html';">
-        <center><h1>Gift</h1></center>
-    </div>
+    <div id="escapeGift">Gift</div>
+
+    <script>
+        const gift = document.getElementById('escapeGift');
+        let isMoving = false;
+
+        // Function to move the div randomly within the viewport
+        function moveGift() {
+            const x = Math.floor(Math.random() * (window.innerWidth - gift.offsetWidth));
+            const y = Math.floor(Math.random() * (window.innerHeight - gift.offsetHeight));
+            gift.style.left = `${x}px`;
+            gift.style.top = `${y}px`;
+
+            // Trigger fireworks effect
+            triggerFireworks(x, y);
+        }
+
+        // Function to create fireworks effect
+        function triggerFireworks(x, y) {
+            const fireworks = document.createElement('div');
+            fireworks.classList.add('fireworks');
+            fireworks.style.left = `${x + gift.offsetWidth / 2 - 25}px`;
+            fireworks.style.top = `${y + gift.offsetHeight / 2 - 25}px`;
+
+            document.body.appendChild(fireworks);
+
+            // Remove fireworks after animation completes
+            setTimeout(() => {
+                fireworks.remove();
+            }, 1000); // Fireworks animation duration
+        }
+
+        // When the user clicks the div, start moving it
+        gift.addEventListener('click', () => {
+            if (!isMoving) {
+                isMoving = true;
+
+                // Start moving the div randomly
+                const moveInterval = setInterval(moveGift, 100);
+
+                // After 5 seconds, stop moving the div and redirect
+                setTimeout(() => {
+                    clearInterval(moveInterval); // Stop the movement
+                    // Optionally, position the div in its final location
+                    gift.style.left = `${gift.offsetLeft}px`;
+                    gift.style.top = `${gift.offsetTop}px`;
+
+                    // Redirect to the next page (change URL to the actual next page)
+                    window.location.href = "pavansai.html";  // Replace with the actual URL
+                }, 5000); // Move for 5 seconds
+            }
+        });
+    </script>
 </body>
 </html>
