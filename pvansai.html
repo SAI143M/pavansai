@@ -9,7 +9,10 @@
             margin: 0;
             padding: 0;
             font-family: 'Poppins', sans-serif;
-            background: linear-gradient(120deg, #ff0000, #ffffff);
+            background: 
+                linear-gradient(#0007, #0000),
+                #123;
+            height: 100vh;
             overflow: hidden;
             color: #fff;
         }
@@ -117,6 +120,98 @@
             0% { transform: scale(1); }
             100% { transform: scale(1.1); }
         }
+
+        /* Firework animations */
+        @keyframes firework {
+            0% { transform: translate(var(--x), var(--initialY)); width: var(--initialSize); opacity: 1; }
+            50% { width: 0.5vmin; opacity: 1; }
+            100% { width: var(--finalSize); opacity: 0; }
+        }
+
+        .firework,
+        .firework::before,
+        .firework::after {
+            --initialSize: 0.5vmin;
+            --finalSize: 45vmin;
+            --particleSize: 0.2vmin;
+            --color1: yellow;
+            --color2: khaki;
+            --color3: white;
+            --color4: lime;
+            --color5: gold;
+            --color6: mediumseagreen;
+            --y: -30vmin;
+            --x: -50%;
+            --initialY: 60vmin;
+            content: "";
+            animation: firework 2s infinite;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, var(--y));
+            width: var(--initialSize);
+            aspect-ratio: 1;
+            background: 
+                radial-gradient(circle, var(--color1) var(--particleSize), #0000 0) 50% 0%,
+                radial-gradient(circle, var(--color2) var(--particleSize), #0000 0) 100% 50%,
+                radial-gradient(circle, var(--color3) var(--particleSize), #0000 0) 50% 100%,
+                radial-gradient(circle, var(--color4) var(--particleSize), #0000 0) 0% 50%,
+                radial-gradient(circle, var(--color5) var(--particleSize), #0000 0) 80% 90%,
+                radial-gradient(circle, var(--color6) var(--particleSize), #0000 0) 95% 90%,
+                radial-gradient(circle, var(--color1) var(--particleSize), #0000 0) 90% 70%,
+                radial-gradient(circle, var(--color2) var(--particleSize), #0000 0) 100% 60%,
+                radial-gradient(circle, var(--color3) var(--particleSize), #0000 0) 55% 80%,
+                radial-gradient(circle, var(--color4) var(--particleSize), #0000 0) 70% 77%,
+                radial-gradient(circle, var(--color5) var(--particleSize), #0000 0) 22% 90%,
+                radial-gradient(circle, var(--color6) var(--particleSize), #0000 0) 45% 90%,
+                radial-gradient(circle, var(--color1) var(--particleSize), #0000 0) 33% 70%,
+                radial-gradient(circle, var(--color2) var(--particleSize), #0000 0) 10% 60%,
+                radial-gradient(circle, var(--color3) var(--particleSize), #0000 0) 31% 80%,
+                radial-gradient(circle, var(--color4) var(--particleSize), #0000 0) 28% 77%,
+                radial-gradient(circle, var(--color5) var(--particleSize), #0000 0) 13% 72%,
+                radial-gradient(circle, var(--color6) var(--particleSize), #0000 0) 80% 10%,
+                radial-gradient(circle, var(--color1) var(--particleSize), #0000 0) 95% 14%,
+                radial-gradient(circle, var(--color2) var(--particleSize), #0000 0) 90% 23%,
+                radial-gradient(circle, var(--color3) var(--particleSize), #0000 0) 100% 43%;
+            background-size: var(--initialSize) var(--initialSize);
+            background-repeat: no-repeat;
+        }
+
+        .firework::before, .firework::after {
+            --x: -50%;
+            --y: -50%;
+            --initialY: -50%;
+        }
+
+        .firework:nth-child(2) {
+            --x: 30vmin;
+            left: 30%;
+            top: 60%;
+            animation-delay: -0.25s;
+        }
+
+        .firework:nth-child(3) {
+            --x: -30vmin;
+            --y: -50vmin;
+            left: 70%;
+            top: 60%;
+            animation-delay: -0.4s;
+        }
+
+        .firework:nth-child(4) {
+            --x: 50vmin;
+            left: 50%;
+            top: 50%;
+            animation-delay: -0.6s;
+        }
+
+        .firework:nth-child(5) {
+            --x: -50vmin;
+            --y: -60vmin;
+            left: 20%;
+            top: 40%;
+            animation-delay: -0.8s;
+        }
     </style>
 </head>
 <body>
@@ -126,28 +221,30 @@
         Your browser does not support the audio tag.
     </audio>
 
-    <div class="animation-container">
-        <h1>Happy Birthday pAAvan Sai 🎉</h1>
-        <h2>Class Topper | Psycho</h2>
+    <div class="content">
+        <h1>Happy Birthday pAAvan Sai!</h1>
+        <h2>Physco | Topper</h2>
         <p>From Team Kanaya Rashi</p>
 
-        <!-- Photo placeholder -->
         <div class="photo-placeholder">
-            <img src="Screenshot 2024-12-16 085424.png" alt="Photo of pAAvan Sai">
+            <img src="Screenshot 2024-12-16 085424.png" alt="Profile Picture">
         </div>
 
-        <!-- Play Music Button -->
-        <button class="play-music" onclick="playMusic()">Play Music 🎵</button>
+  
 
-        <!-- CTA Button -->
-        <div class="button">Celebrate Now!</div>
+        <!-- Fireworks -->
+        <div class="firework"></div>
+        <div class="firework"></div>
+        <div class="firework"></div>
+        <div class="firework"></div>
+        <div class="firework"></div>
+        <div class="firework"></div>
+        <div class="firework"></div>
+        <div class="firework"></div>
+        <div class="firework"></div>
+        <div class="firework"></div>
+
+        <button class="play-music" onclick="document.getElementById('birthdayMusic').play()">Play Music</button>
     </div>
-
-    <script>
-        function playMusic() {
-            const music = document.getElementById('birthdayMusic');
-            music.play();
-        }
-    </script>
 </body>
 </html>
