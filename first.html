@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Next Page</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f8ff;
+            color: #333;
+            text-align: center;
+            height: 100vh; /* Set height to 100% of viewport */
+            display: flex;
+            justify-content: center; /* Center horizontally */
+            align-items: center; /* Center vertically */
+            margin: 0;
+        }
+
+        /* Gift box styles */
+        .gift {
+            width: 200px;
+            height: 200px;
+            background-color: #ff6347;
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.5rem;
+            border-radius: 10px;
+            cursor: pointer;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.5);
+            animation: bounce 1s infinite alternate;
+        }
+
+        .gift img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            border-radius: 10px;
+        }
+
+        /* Keyframe animation for bouncing effect */
+        @keyframes bounce {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(-15px); }
+        }
+    </style>
+</head>
+<body>
+    <!-- Clickable animated gift box -->
+    <div class="gift" onclick="window.location.href='pavansai.html';">
+        <img src="c:\Users\marve\OneDrive\Desktop\100dayproblem\download.jpg" alt="Gift Box">
+    </div>
+</body>
+</html>
