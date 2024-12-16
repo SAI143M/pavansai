@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday pAAvan Sai!</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(120deg, #ff0000, #ffffff);
+            overflow: hidden;
+            color: #fff;
+        }
+
+        h1, h2, p {
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            font-size: 4rem;
+            font-weight: bold;
+            text-shadow: 4px 4px 6px rgba(0, 0, 0, 0.5);
+            animation: float 3s ease-in-out infinite;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            margin-top: 10px;
+            color: #ffeb3b;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+
+        p {
+            font-size: 1.8rem;
+            margin-top: 20px;
+            color: #ffffff;
+            font-style: italic;
+            animation: fadeIn 4s infinite alternate;
+        }
+
+        .photo-placeholder {
+            width: 250px;
+            height: 250px;
+            margin: 20px auto;
+            background: #000;
+            border: 10px solid #fff;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            animation: rotate 6s linear infinite;
+        }
+
+        .photo-placeholder img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            margin-top: 30px;
+            font-size: 1.2rem;
+            background: #ffffff;
+            color: #ff0000;
+            font-weight: bold;
+            text-transform: uppercase;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            animation: pop 2s infinite alternate;
+            text-align: center;
+        }
+
+        .play-music {
+            display: block;
+            margin: 20px auto;
+            padding: 10px 20px;
+            font-size: 1.5rem;
+            background: #ffeb3b;
+            color: #000;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        /* Keyframes for animations */
+        @keyframes float {
+            0%, 100% { transform: translateY(-10px); }
+            50% { transform: translateY(10px); }
+        }
+
+        @keyframes glow {
+            0% { text-shadow: 2px 2px 5px rgba(255, 255, 0, 0.3); }
+            100% { text-shadow: 4px 4px 15px rgba(255, 255, 0, 1); }
+        }
+
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        @keyframes pop {
+            0% { transform: scale(1); }
+            100% { transform: scale(1.1); }
+        }
+    </style>
+</head>
+<body>
+    <!-- Music player -->
+    <audio id="birthdayMusic" loop>
+        <source src="c:\Users\marve\OneDrive\Desktop\100dayproblem\Naa Peru Surya Naa Illu India Ringtones Download Telugu.mp3" type="audio/mpeg">
+        Your browser does not support the audio tag.
+    </audio>
+
+    <div class="animation-container">
+        <h1>Happy Birthday pAAvan Sai 🎉</h1>
+        <h2>Class Topper | Psycho</h2>
+        <p>From Team Kanaya Rashi</p>
+
+        <!-- Photo placeholder -->
+        <div class="photo-placeholder">
+            <img src="c:\Users\marve\OneDrive\Desktop\100dayproblem\Screenshot 2024-12-16 085424.png" alt="Photo of pAAvan Sai">
+        </div>
+
+        <!-- Play Music Button -->
+        <button class="play-music" onclick="playMusic()">Play Music 🎵</button>
+
+        <!-- CTA Button -->
+        <div class="button">Celebrate Now!</div>
+    </div>
+
+    <script>
+        function playMusic() {
+            const music = document.getElementById('birthdayMusic');
+            music.play();
+        }
+    </script>
+</body>
+</html>
